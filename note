@@ -1,0 +1,18 @@
+my_num = 15;
+
+"xx".length
+
+"XXX".reverse
+
+"XXXX".upcase & downcas
+
+#single line comment
+
+=begin ...
+....
+=end to indicate block comment
+
+gets.chomp to receive user input
+when print out use #{parameter_name} to write that value
+
+capitalize, here. It capitalizes the first letter of a string and makes the rest of the letters lower case. If there's ! at the end, it means it manipulates that value
