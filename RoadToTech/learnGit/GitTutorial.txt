@@ -1,1 +1,7 @@
 Respository:仓库或者版本库,其实就是一个文件目录，所有的文件都可以被Git管理起来
+git log 用来查看最近的commit history时间由近到远
+git log --pretty=oneline简洁的一行显示一行的commit
+git reflog 用来显示命令历史，以便确定回到未来的某个commit
+git reset --hard <commit-id>
+git reset --hard HEAD^这个reset是用来进退版本的，HEAD代表当前版本，HEAD^代表上一个版本，HEAD^^代表上两个版本，上100个版本就要用HEAD~100
+
