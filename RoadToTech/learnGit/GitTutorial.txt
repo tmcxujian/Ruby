@@ -1,7 +1,31 @@
-Respository:仓库或者版本库,其实就是一个文件目录，所有的文件都可以被Git管理起来
+Chapter One:
+Repository:仓库或者版本库,其实就是一个文件目录，所有的文件都可以被Git管理起来
 git log 用来查看最近的commit history时间由近到远
 git log --pretty=oneline简洁的一行显示一行的commit
 git reflog 用来显示命令历史，以便确定回到未来的某个commit
 git reset --hard <commit-id>
 git reset --hard HEAD^这个reset是用来进退版本的，HEAD代表当前版本，HEAD^代表上一个版本，HEAD^^代表上两个版本，上100个版本就要用HEAD~100
 
+Chapter Two:
+工作区 Working Directory 
+暂存区 Stage
+分支 master 指针 HEAD
+git add: add file modifications to Stage
+git commit: add all stage modifications to local repository
+
+Revocation of Modification
+场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout -- file
+git checkout其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。
+场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD file，就回到了场景1，第二步按场景1操作。
+场景3: 当你已经提交到了版本库，想要撤销本次提交
+场景4：当你已经推送到远程库
+
+远程仓库
+添加远程库:
+要关联一个远程库，使用命令git remote add origin git@server-name:path/repo-name.git；
+关联后，使用命令git push -u origin master第一次推送master分支的所有内容；
+此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改；
+
+分支管理：
+分支在实际中有什么用呢？假设你准备开发一个新功能，但是需要两周才能完成，第一周你写了50%的代码，如果立刻提交，由于代码还没写完，不完整的代码库会导致别人不能干活了。如果等代码全部写完再一次提交，又存在丢失每天进度的巨大风险。
+现在有了分支，就不用怕了。你创建了一个属于你自己的分支，别人看不到，还继续在原来的分支上正常工作，而你在自己的分支上干活，想提交就提交，直到开发完毕后，再一次性合并到原来的分支上，这样，既安全，又不影响别人工作
